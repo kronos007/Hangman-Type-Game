@@ -13,11 +13,10 @@ i = 0
 # a list object containing the words
 # returns an exception if the word file is not present
 try:
-    f = open("words.txt", "r")
-    words = f.readlines()
-    f.close()
+    with open("words.txt", "r") as f:
+        words = f.readlines()
 except IOError:
-    print("Word list file not found.")
+    print("Word list file not found.", IOError)
 
 # Randomly chooses a word from the list
 # and creates a new list containing the letters
@@ -68,7 +67,7 @@ while True:
             break
         elif resume == "y":
             continue
-            print('\n')
+        print('\n')
 
 # If player runs out of tries game ends and displays hidden word
     if tries == 0:
